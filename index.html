@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-SCRIPTS Hub</title>
+    <style>
+        body, html { margin: 0; padding: 0; font-family: Arial, sans-serif; background: #f0f0f0; height: 100%; }
+        #overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 9999;
+        }
+        #overlay h1 { font-size: 2em; margin-bottom: 20px; }
+        #overlay p { font-size: 1.2em; margin-bottom: 30px; max-width: 500px; }
+        #overlay button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #overlay button:hover { background: #0056b3; }
+
+        #mainContent { display: none; padding: 50px; text-align: center; }
+        #mainContent h1 { font-size: 2.5em; color: #333; }
+        #mainContent p { max-width: 700px; margin: 20px auto; font-size: 1.2em; color: #555; }
+    </style>
+</head>
+<body>
+
+<div id="overlay">
+    <h1>Por sua segurança</h1>
+    <p>Assista ao nosso vídeo explicando como baixar o executor original e seguro, sem vírus. Depois clique em "OK" para desbloquear o site.</p>
+    <button id="okButton">OK</button>
+</div>
+
+<div id="mainContent">
+    <h1>G-SCRIPTS</h1>
+    <p>Bem-vindo ao hub oficial de scripts! Aqui seguimos nossas diretrizes de uso: <br>
+    - Nunca baixe executores de sites suspeitos.<br>
+    - Use os scripts apenas em servidores de teste.<br>
+    - Respeite os termos de uso do Roblox e dos jogos.<br>
+    - Todos os scripts disponíveis aqui são verificados e seguros.</p>
+</div>
+
+<script>
+    const overlay = document.getElementById("overlay");
+    const mainContent = document.getElementById("mainContent");
+    const okButton = document.getElementById("okButton");
+
+    okButton.addEventListener("click", () => {
+        // Redireciona para o vídeo do YouTube
+        window.open("https://www.youtube.com/watch?v=m-Dub9AOZf0", "_blank");
+
+        // Espera a pessoa clicar novamente depois de assistir
+        setTimeout(() => {
+            const confirmWatch = confirm("Você assistiu até 1:22? Clique OK para desbloquear o site.");
+            if (confirmWatch) {
+                overlay.style.display = "none";
+                mainContent.style.display = "block";
+            }
+        }, 500); // Espera 0,5s para o confirm aparecer
+    });
+</script>
+
+</body>
+</html>
